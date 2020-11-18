@@ -22,6 +22,7 @@ public class Look : MonoBehaviour
 
         xRotation -= mouseY;
         yRotation += mouseX;
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(xRotation, 0, 0f);
+        transform.parent.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }
