@@ -7,10 +7,16 @@ public class Blackout : MonoBehaviour
     public LightControler[] lights;
     public ParticleSystem system;
 
+    public Renderer garrain;
+    public Renderer rain;
+    public Material rainLit, rainUnlit;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CauseBlackout(3));
+        garrain.material = rainLit;
+        rain.material = rainLit;
+        StartCoroutine(CauseBlackout(20));
     }
 
     IEnumerator CauseBlackout(float timeToWait)
@@ -25,6 +31,7 @@ public class Blackout : MonoBehaviour
         lights[1].Turnoff();
         lights[0].Turnoff();
         lights[2].Turnoff();
+        rain.material = rainUnlit;
         yield return new WaitForSeconds(1);
         lights[3].Turnoff();
         lights[4].Turnoff();
@@ -32,6 +39,7 @@ public class Blackout : MonoBehaviour
         yield return new WaitForSeconds(1);
         lights[6].Turnoff();
         lights[7].Turnoff();
+        garrain.material = rainUnlit;
     }
 
     // Update is called once per frame
