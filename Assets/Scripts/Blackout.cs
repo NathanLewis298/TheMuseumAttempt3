@@ -11,9 +11,16 @@ public class Blackout : MonoBehaviour
     public Renderer rain;
     public Material rainLit, rainUnlit;
 
+    private HeartBreaker HB;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
+        HB = FindObjectOfType<HeartBreaker>();
+
+
         garrain.material = rainLit;
         rain.material = rainLit;
         StartCoroutine(CauseBlackout(20));
@@ -23,6 +30,9 @@ public class Blackout : MonoBehaviour
     {
         yield return new WaitForSeconds(timeToWait);
         lights[1].StartFlickering(5);
+        HB.blackout = true;
+        HB.hrIncrease = 0.5f;
+
         yield return new WaitForSeconds(5.1f);
         system.Play();
         StopCoroutine(lights[1].FlickeringLight());
@@ -40,6 +50,8 @@ public class Blackout : MonoBehaviour
         lights[6].Turnoff();
         lights[7].Turnoff();
         garrain.material = rainUnlit;
+
+        HB.hrIncrease = 1f;
     }
 
     // Update is called once per frame
