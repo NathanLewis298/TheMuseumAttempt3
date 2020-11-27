@@ -70,6 +70,8 @@ public class HeartBreaker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!flashlight.source.isPlaying && flashlight.Chargeslider.value == 0) 
+            flashlight.source.PlayOneShot(flashlight.beginChargeSound);
         isOffice = true;
     }
 

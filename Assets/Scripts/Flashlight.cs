@@ -11,6 +11,7 @@ using UnityEngine.UI;
     public float decreaseRate;
     public AudioClip FlashOn;
     public AudioClip FlashOff;
+    public AudioClip beginChargeSound;
 
     public GameObject offphonescreen;
 
@@ -35,7 +36,7 @@ using UnityEngine.UI;
         {
             flashlight.enabled = !flashlight.enabled;
 
-            source.volume = 1f;
+            source.volume = 0.1f;
             source.PlayOneShot(FlashOn);
 
             //offphonescreen.gameObject.SetActive(false);
@@ -49,7 +50,7 @@ using UnityEngine.UI;
           
             flashlight.enabled = false;
 
-            source.volume = 1f;
+            source.volume = 0.1f;
             source.PlayOneShot(FlashOff);
 
             offphonescreen.gameObject.SetActive(true);
