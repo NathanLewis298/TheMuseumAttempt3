@@ -52,6 +52,8 @@ public class Blackout : MonoBehaviour
         garrain.material = rainUnlit;
 
         HB.hrIncrease = 1f;
+
+        FindObjectOfType<Clown>().blackout = true;
     }
 
     // Update is called once per frame
