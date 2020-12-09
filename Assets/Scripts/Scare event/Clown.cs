@@ -18,6 +18,8 @@ public class Clown : MonoBehaviour
 
     bool completed = false;
 
+    bool triggered = false;
+
 
     private void Start()
     {
@@ -29,11 +31,11 @@ public class Clown : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
+
+        blackout = FindObjectOfType<HeartBreaker>().blackout;
 
 
-
-        if (blackout == true && completed == true)
+        if (blackout == true && completed == true && triggered == false)
         {
             clown.SetActive(true);
 
@@ -42,6 +44,8 @@ public class Clown : MonoBehaviour
             StartCoroutine(ActivateClown(4f));
 
             Clownspawn.currenHeartRate += 20f;
+
+            triggered = true;
         }
 
 

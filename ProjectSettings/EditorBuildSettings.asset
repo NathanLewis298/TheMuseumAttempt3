@@ -11,6 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Death.unity
     guid: 6957bdf074c811540a11a22ba43b0f97
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: ddebadb5fd8f3aa459f4dd696e98b1ac
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 3ccfe3fad7c6f7b4e9752c130f88885c
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 85dced93952ae1c4f8932411c43d0cd6,
       type: 2}

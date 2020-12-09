@@ -54,6 +54,12 @@ public class Blackout : MonoBehaviour
         HB.hrIncrease = 1f;
 
         FindObjectOfType<Clown>().blackout = true;
+        BrokenLight.isBroken = true;
+    }
+
+    public void TriggerNewBlackout(float time)
+    {
+        StartCoroutine(CauseBlackout(time));
     }
 
     // Update is called once per frame

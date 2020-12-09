@@ -66,18 +66,32 @@ public class LightControler : MonoBehaviour
         timeDelay = Random.Range(0.01f, 0.2f);
         yield return new WaitForSeconds(timeDelay);
         isFlickering = false;
+
+        Turnoff(false);
     }
 
-    public void Turnoff()
+    public void Turnoff(bool playAudio = true)
     {
         spotLight.enabled = false;
         renderer.material = materialOff;
-        if (source)
+        if (source && playAudio)
         {
             source.volume = 1f;
             source.PlayOneShot(clip);
         }
             
+    }
+
+    public void TurnOn()
+    {
+        spotLight.enabled = true;
+        renderer.material = materialOn;
+        if (source)
+        {
+            source.volume = 1f;
+            //source.PlayOneShot(clip);
+        }
+
     }
 
 
